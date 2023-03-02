@@ -1,6 +1,7 @@
 from typing import Union, List, Dict
 from src.insights.jobs import read
 
+
 def get_max_salary(path: str) -> int:
     result = read(path)
     salary = set()
@@ -10,24 +11,18 @@ def get_max_salary(path: str) -> int:
             salary.add(int(item['max_salary']))
 
     return max(salary)
+# https://acervolima.com/python-string-isdigit-e-seu-aplicativo/
 
 
 def get_min_salary(path: str) -> int:
-    """Get the minimum salary of all jobs
+    result = read(path)
+    salary = set()
 
-    Must call `read`
+    for item in result:
+        if item['min_salary'].isdigit():
+            salary.add(int(item['min_salary']))
 
-    Parameters
-    ----------
-    path : str
-        Must be passed to `read`
-
-    Returns
-    -------
-    int
-        The minimum salary paid out of all job opportunities
-    """
-    raise NotImplementedError
+    return max(salary)
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
