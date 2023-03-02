@@ -15,14 +15,13 @@ def get_max_salary(path: str) -> int:
 
 
 def get_min_salary(path: str) -> int:
-    resultList = read(path)
+    result = read(path)
     salary = set()
-
-    for item in resultList:
-        if item["max_salary"] != '' and item["max_salary"] != 'invalid':
+    for item in result:
+        if item['min_salary'].isdigit():
             salary.add(int(item['min_salary']))
 
-    return max(salary)
+    return min(salary)
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
