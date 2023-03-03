@@ -10,19 +10,11 @@ def get_unique_industries(path: str) -> List[str]:
     return industries
 
 
-def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
-    """Filters a list of jobs by industry
+def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:  
+    industries_filter = []
 
-    Parameters
-    ----------
-    jobs : list
-        List of jobs to be filtered
-    industry : str
-        Industry for the list filter
+    for item in jobs:
+        if item['industry'] == industry:
+            industries_filter.append(item)
 
-    Returns
-    -------
-    list
-        List of jobs with provided industry
-    """
-    raise NotImplementedError
+    return industries_filter
