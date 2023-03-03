@@ -15,9 +15,9 @@ def get_max_salary(path: str) -> int:
 
 
 def get_min_salary(path: str) -> int:
-    result = read(path)
+    resultList = read(path)
     salary = set()
-    for item in result:
+    for item in resultList:
         if item['min_salary'].isdigit():
             salary.add(int(item['min_salary']))
 
